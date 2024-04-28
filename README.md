@@ -23,12 +23,13 @@ Create a new screen to run your script. CTRL + A + D to detach once you are done
 ```
 # Create new screen
 screen -S restart
-
+```
+```
 # change directory 
 cd restart-script
-
+```
+```
 # Run script
 ./restart.sh
-
 ```
 
