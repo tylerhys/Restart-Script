@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Log file path
-LOG_FILE="/var/lib/docker/containers/f7d86260910af4248e23dfd5628a2c058c05ed1954ae4e622ea5f5cc7524bc13/f7d86260910af4248e23dfd5628a2c058c05ed1954ae4e622ea5f5cc7524bc13-json.log"
-RESTART_LOG="/root/restart-script/restart.log"
+CONTAINER_ID="replace_with_your_ID"
+LOG_FILE="/var/lib/docker/containers/${CONTAINER_ID}/${CONTAINER_ID}-json.log"
+RESTART_LOG="/root/restart/restart.log"
 
 # Function to check for errors and restart Docker containers
 check_and_restart() {
@@ -20,7 +21,7 @@ check_and_restart() {
         
         # Clear logs
         TIME = date "+%Y%m%d%H%M%S"
-        cp $LOG_FILE /root/restart-script/archive/f7d86260910af4248e23dfd5628a2c058c05ed1954ae4e622ea5f5cc7524bc13-$TIME-json.log
+        cp $LOG_FILE /root/restart/archive/$TIME-json.log
         rm $LOG_FILE
         
         # Restart the Docker containers
