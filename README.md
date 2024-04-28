@@ -19,7 +19,7 @@ CONTAINER_ID="replace-with-your-ID"
 ```
 
 Step 4:
-Create a new screen to run your script
+Create a new screen to run your script. CTRL + A + D to detach once you are done.
 ```
 # Create new screen
 screen -S restart
@@ -30,6 +30,5 @@ cd restart-script
 # Run script
 ./restart.sh
 
-# Detach
-ctrl + A + D
 ```
+
