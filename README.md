@@ -1,4 +1,8 @@
 This is a script to restart your Ritual Node automatically.
+Prereq:
+```
+sudo apt-get install jq
+```
 
 Step 1:
 Fetch your Docker Container ID and copy the ID for ritualnetwork/infernet-node
