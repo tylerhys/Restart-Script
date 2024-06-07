@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Log file path
-CONTAINER_ID="f7d86260910af4248e23dfd5628a2c058c05ed1954ae4e622ea5f5cc7524bc13"
+CONTAINER_ID="000f47932a8980db56de92f04b61183f157139cd1e6378f2aaaa54a20933caad"
 LOG_FILE="/var/lib/docker/containers/${CONTAINER_ID}/${CONTAINER_ID}-json.log"
 RESTART_LOG="/root/restart/restart.log"
 
@@ -11,7 +11,7 @@ check_and_restart() {
     last_line=$(tail -n 1 $LOG_FILE)
 
     # Check if the word 'error' is in the last line
-    if echo "$last_line" | grep -i "error" >/dev/null; then
+    if echo "$last_line" | grep -E -i "error|Exited main process" >/dev/null; then
         # Find the last 'info' line before the 'error' line
         last_info=$(tac $LOG_FILE | grep -m 1 -i "info" | jq -r '.log' | sed 's/\x1b\[[0-9;:]*[mGKHf]//g')
 
